@@ -9,7 +9,7 @@ from plone.dexterity.content import Container
 from plone.app.blocks.layoutbehavior import ILayoutAware
 from plone.app.blocks.utils import resolveResource
 
-from plone.app.page.interfaces import IPage
+from plone.app.page.interfaces import IPage, IPloneAppPageLayer
 from plone.app.page.utils import getDefaultPageLayout
 
 LOGGER = logging.getLogger('plone.app.page')
@@ -26,6 +26,10 @@ def setDefaultLayoutForNewPage(obj, event):
     """When a new page is created, set its layout based on the default in
     the FTI
     """
+
+    if not IPloneAppPageLayer.providedBy(obj.REQUEST):
+        # Only run this if p.a.page is installed
+        return
     
     layoutAware = ILayoutAware(obj, None)
     if layoutAware is None:
