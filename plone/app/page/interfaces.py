@@ -43,3 +43,6 @@ class IPageFTI(IDexterityFTI):
             description=_(u"The default page layout template used when creating new pages of this type"),
             vocabulary='plone.availablePageLayouts',
         )
+
+class IPloneAppPageLayer(Interface):
+    """ Browser layer marker interface. """

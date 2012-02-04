@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <layer
+        name="plone.app.page"
+        interface="plone.app.page.interfaces.IPloneAppPageLayer" />
+</layers>
